@@ -1,3 +1,5 @@
+package company;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -6,9 +8,11 @@ public class Event {
     private LocalDateTime dateTime;
     private String location;
 
-    public Event(String name, LocalDateTime dateTime, String location) {
+    // Конструктор
+    public Event(String name, String dateTimeString, String location) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
         this.name = name;
-        this.dateTime = dateTime;
+        this.dateTime = LocalDateTime.parse(dateTimeString, formatter);
         this.location = location;
     }
 

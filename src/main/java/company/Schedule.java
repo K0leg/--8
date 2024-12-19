@@ -1,3 +1,5 @@
+package company;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -11,13 +13,13 @@ public class Schedule {
     }
 
     public List<Event> getEventsByDate(LocalDate date) {
-        List<Event> filteredEvents = new ArrayList<>();
+        List<Event> result = new ArrayList<>();
         for (Event event : events) {
             if (event.getDateTime().toLocalDate().equals(date)) {
-                filteredEvents.add(event);
+                result.add(event);
             }
         }
-        return filteredEvents;
+        return result;
     }
 
     public void removePastEvents() {
